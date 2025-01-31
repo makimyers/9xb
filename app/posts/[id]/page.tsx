@@ -1,7 +1,13 @@
 import { getPost } from '@/app/services/posts';
 import SidebarLayout from '@/components/SidebarLayout';
 
-export default async function PostPage({ params }: { params: { id: string } }) {
+type PostPageProps = {
+  params: {
+    id: string;
+  };
+};
+
+export default async function PostPage({ params }: PostPageProps) {
   
   const post = await getPost(params.id); // fetch post data, ID coming from Link in PostList
   console.log('Post Data:', post);
